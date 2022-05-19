@@ -21,5 +21,7 @@ esac
 read -p "Enter your Dockerhub username: " uname
 docker login -u $uname
 
-docker builder build -t ${uname}/service1 .
-docker push ${uname}/service1
+for svc in service1 service2; do
+  docker builder build -t ${uname}/$svc ./$svc
+  docker push ${uname}/$svc
+done
