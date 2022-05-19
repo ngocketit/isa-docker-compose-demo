@@ -6,6 +6,9 @@ services:
       context: ./service1
     ports:
       - "9001:9001"
+    environment:
+      - VIRTUAL_HOST=service1.local
+      - VIRTUAL_PORT=9001
 
   service2:
     build:
@@ -14,3 +17,13 @@ services:
       - service1
     ports:
       - "9002:9002"
+    environment:
+      - VIRTUAL_HOST=service2.local
+      - VIRTUAL_PORT=9002
+
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    ports:
+      - "9000:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
