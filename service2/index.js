@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const app = express()
-const port = 9001
+const port = 9002
 
 app.get('/message/:name', (req, res) => {
   axios.get(`service1/greet/${req.params.name}`).then(resp => {
