@@ -4,7 +4,7 @@ const port = 9001
 
 app.get('/greet/:name', (req, res) => {
   res.json({
-    message: `Hello ${req.params.name}`,
+    message: `Service 1: Hello ${req.params.name}`,
   })
 })
 
