@@ -27,3 +27,4 @@ services:
       - "9000:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./basic-auth:/etc/nginx/htpasswd
